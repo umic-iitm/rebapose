@@ -1,0 +1,34 @@
+
+<html>
+  <body>
+
+    <div>
+      {{ table | safe }}
+    </div>
+
+    <button onclick="reset_initial_index()">Reset Index</button>
+    <button onclick="delete_output_files()">Delete Output</button>
+  </body>
+  <script type="text/javascript">
+
+    function reset_initial_index(){
+      fetch('/reset-index', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }}).then(resp => resp).then(resp => console.log(resp))
+    }
+
+    function delete_output_files(){
+      fetch('/delete_output_files', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }}).then(resp => resp).then(resp => console.log(resp))
+
+    }
+
+
+
+  </script>
+</html>
