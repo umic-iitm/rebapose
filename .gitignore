@@ -1,0 +1,6 @@
+# Ignore large model weights
+*.pth
+
+# Ignore large JSON datasets
+REBAJsonTrg/coco_wholebody_val_v1.0.json
+REBAJsonTrg/data/*.json
