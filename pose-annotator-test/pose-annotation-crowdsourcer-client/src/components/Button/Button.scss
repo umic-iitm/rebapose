@@ -1,0 +1,29 @@
+.button {
+  background: #1cd8d2;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--outline {
+    background: #fff !important;
+    border: solid 2px #1cd8d2;
+  }
+
+  &--disabled {
+    background: #e5e5e5;
+    border-color: #aaa;
+
+    &:hover {
+      cursor: not-allowed !important;
+      box-shadow: none !important;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 3px #aaa;
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "forehead": [null, null, 2],
+    "nose": [0, 0, 2],
+    "left_eye": [0, 0, 2],
+    "right_eye": [0, 0, 2],
+    "left_ear": [0, 0, 2],
+    "right_ear": [0, 0, 2],
+    "neck": [null, null, 2],
+    "left_shoulder": [0, 0, 2],
+    "right_shoulder": [0, 0, 2],
+    "left_elbow": [0, 0, 2],
+    "right_elbow": [0, 0, 2],
+    "left_wrist": [0, 0, 2],
+    "right_wrist": [0, 0, 2],
+    "left_hip": [0, 0, 2],
+    "center_hip": [null, null, 2],
+    "right_hip": [0, 0, 2],
+    "left_knee": [0, 0, 2],
+    "right_knee": [0, 0, 2],
+    "left_ankle": [0, 0, 2],
+    "right_ankle": [0, 0, 2]
+  }

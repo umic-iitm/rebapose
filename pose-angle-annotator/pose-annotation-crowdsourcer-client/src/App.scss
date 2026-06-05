@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
+}
+
+.app-name {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  background-color: #05c8c1;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.3);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.pose-point-row:hover {
+  background: #1cd8d240;
+}
+
+.zoom {
+  &__icon {
+    display: flex;
+    flex: 1;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+
+    &:hover {
+      flex: 2 !important;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+}
