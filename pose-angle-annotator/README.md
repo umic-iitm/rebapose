@@ -8,6 +8,10 @@ A crowdsourced web application for manually annotating human body keypoints on i
 
 Workers load images one at a time and click to place keypoints (forehead, nose, eyes, ears, shoulders, elbows, wrists, hips, knees, ankles) on each person. Three points are mandatory before saving: **forehead**, **neck**, and **center hip** -- the minimum set needed for REBA trunk assessment. Completed annotations are stored as JSON files in Google Cloud Storage, with Firestore tracking annotation counts and access timestamps.
 
+![Pose Annotator UI](AnnotatorscreenShot.jpg)
+
+*Keypoint list with coordinates (left), interactive canvas with placed joints (center), and control panel (right).*
+
 ---
 
 ## Tech Stack
