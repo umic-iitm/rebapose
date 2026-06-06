@@ -89,6 +89,18 @@ Annotated Image + JSON Report
 
 ---
 
+## Generalization Across Datasets
+
+REBAPose generalizes across both generic (COCO) and domain-specific (MOCS) construction site images, automatically detecting multiple workers and scoring each with color-coded risk levels.
+
+![REBAPose: Generalization Across Datasets](rebapose_generalization.png)
+
+- **COCO images** are typically close-up shots with clear body visibility
+- **MOCS images** are captured from farside angles typical of construction site surveillance, with more occlusion from equipment, materials, and overlapping workers
+- REBAPose detects and independently scores multiple workers in a single frame
+
+---
+
 ## Installation
 
 ### Prerequisites

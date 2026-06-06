@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# REBA Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application for browsing images alongside their REBA (Rapid Entire Body Assessment) scoring results. Navigate through annotated images and inspect detailed ergonomic risk scores in tabular format.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## What It Does
 
-### `npm start`
+The viewer loads a set of images and their corresponding REBA JSON result files. For each image, it displays:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- The original image (construction site worker posture)
+- A table of **REBA aggregate scores**: Table A (posture), Table B (arms), Score A, Score B, Score C (final), and risk caption
+- **Individual joint scores**: trunk angle, neck angle, leg position, upper/lower arm angles, wrist angles, and modifier factors (load, coupling, activity)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users navigate between images with Previous/Next buttons. When an image has multiple REBA analyses (e.g., multiple detected persons), all are shown.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+| Layer | Technology |
+|-------|------------|
+| Framework | React 18 |
+| UI | Bootstrap 5.3 |
+| Data Formatting | js-yaml (for readable object display) |
+| Build Tool | Create React App |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js 14+
+- npm
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Setup & Run
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+cd visualize-reba-ouput
+npm install
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Opens at `http://localhost:3000` with live reloading.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Production Build
 
-## Learn More
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Creates an optimized bundle in `build/`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+visualize-reba-ouput/
+├── public/
+│   └── index.html              # HTML entry point
+├── src/
+│   ├── App.js                  # Main component: image navigation + REBA table rendering
+│   ├── App.css                 # Component styling
+│   ├── index.js                # React entry point
+│   ├── images/                 # 74 JPG images (construction site postures)
+│   └── jsons/                  # 92 JSON files (REBA analysis results)
+└── package.json
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Data Format
 
-### Making a Progressive Web App
+Each JSON file in `src/jsons/` contains per-person REBA results:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```json
+{
+  "image_id": "17075431689554",
+  "file_name": "17075431689554.jpg",
+  "bbox": [x1, y1, x2, y2],
+  "keypoints": { "forehead": [x, y], "neck": [x, y], "..." : "..." },
+  "aggregateScore": {
+    "tableA": 4, "tableBL": 3, "tableBR": 3,
+    "ScoreA": 4, "ScoreB": 3, "ScoreC": 5,
+    "finalReba": "Medium risk, further investigation, change soon"
+  },
+  "individualScore": {
+    "trunk": { "angleDegree": 25, "sideBending": 0 },
+    "neck": { "angleDegree": 15, "sideBending": 0 },
+    "legs": { "walking": 0, "angleDegree": 30 },
+    "upperArm": { "left": { "angleDegree": 45 }, "right": { "angleDegree": 50 } },
+    "lowerArm": { "left": { "angleDegree": 60 }, "right": { "angleDegree": 70 } },
+    "wrist": { "left": { "angleDegree": 10 }, "right": { "angleDegree": 15 } }
+  }
+}
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Key Features
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Image-by-image navigation**: Previous/Next buttons cycle through all 74 images
+- **Multi-person support**: Images with multiple detected persons show all their REBA tables
+- **Detailed scoring tables**: Both aggregate (Score A/B/C) and individual joint-level scores
+- **ID-based pairing**: Images and JSONs are linked by timestamp-based naming convention
