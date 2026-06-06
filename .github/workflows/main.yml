@@ -1,0 +1,15 @@
+name: Rename Folder
+on: workflow_dispatch
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename directory
+        run: |
+          mv "old-folder-name" "new-folder-name"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@://github.com"
+          git add .
+          git commit -m "Rename folder via GitHub Action"
+          git push
