@@ -1,0 +1,26 @@
+# Outputs (generated at runtime)
+outputs/
+transcoded_cfr/
+
+# Model weights
+*.pt
+*.pth
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Internal working notes (not for public distribution)
+CreationofReadMe.md
+SAMPLING_PLAN.md
+GetScoreABC.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

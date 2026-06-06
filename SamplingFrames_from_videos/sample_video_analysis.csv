@@ -1,0 +1,5 @@
+Filename,Foldername,Duration(s),fps,Resolution,Orientation,Sitename,VideoCodec,VideoBitrate(kbps),PixelFormat,ColorSpace,HasAudio,AudioCodec,AudioChannels,AudioSampleRate(Hz),FileSize(MB),CreationTime,VFR,Rotation,Latitude,Longitude
+VID_20231026_123736025.mp4,1_26102023_SiteA_Building1,327.5,29.97,1920*1080,landscape,SiteA_Building1,h264,17200,yuv420p,bt709,yes,aac,2,48000,680.23,2023-10-26T12:37:36.000000Z,no,0,+21.1636,+072.7859
+VID_20231026_130215044.mp4,1_26102023_SiteA_Building1,45.2,29.97,1920*1080,landscape,SiteA_Building1,h264,18500,yuv420p,bt709,yes,aac,2,48000,98.45,2023-10-26T13:02:15.000000Z,no,0,+21.1636,+072.7859
+VID_20240118_094512033.mp4,4_18012024_SiteA_Building2,412.8,30.0,1920*1080,landscape,SiteA_Building2,h264,15800,yuv420p,bt709,yes,aac,2,48000,790.11,2024-01-18T09:45:12.000000Z,no,0,+21.1640,+072.7855
+VID_20240528_110030001.mp4,6_28052024_SiteC_IndustrialUnit,198.3,29.88,1920*1080,landscape,SiteC_IndustrialUnit,h264,12400,yuv420p,bt709,yes,aac,2,48000,295.67,2024-05-28T11:00:30.000000Z,yes,0,+21.1700,+072.7900

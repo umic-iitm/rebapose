@@ -1,0 +1,7 @@
+# Requires Python >= 3.9
+opencv-python>=4.8
+numpy>=1.24
+pandas>=1.5
+tqdm>=4.60
+ultralytics>=8.0
+scenedetect[opencv]>=0.6
