@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Rename directory
         run: |
-          mv "old-folder-name" "new-folder-name"
+          mv "visualize-reba-ouput" "visualize-reba-output"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
           git add .
