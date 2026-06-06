@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: "REBAPose: Development of a novel automated framework and its application for postural risk analysis for the manual demolition process"
+message: "If you use this software, please cite the paper below."
+type: software
+authors:
+  - given-names: Sivakumar
+    family-names: Santhanam
+  - given-names: Kaushik
+    family-names: Bhattacharjee
+  - given-names: Nikhil
+    family-names: Bugalia
+  - given-names: D A
+    family-names: Patel
+repository-code: "https://github.com/umic-iitm/rebapose"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Development of a novel automated framework and its application for postural risk analysis for the manual demolition process"
+  authors:
+    - given-names: Sivakumar
+      family-names: Santhanam
+    - given-names: Kaushik
+      family-names: Bhattacharjee
+    - given-names: Nikhil
+      family-names: Bugalia
+    - given-names: D A
+      family-names: Patel
+  year: 2026
+  status: advance-online

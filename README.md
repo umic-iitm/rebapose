@@ -31,6 +31,7 @@ REBAPose combines a custom-trained HRNet-based 18-keypoint pose estimation model
   - [3D Keypoints (17 points)](#3d-keypoints-17-points)
 - [Model Architecture](#model-architecture)
 - [Dependencies](#dependencies)
+- [Repository Components](#repository-components)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
@@ -527,6 +528,25 @@ Produced by the MotionBERT 3D pose lifter:
 | `numpy` | Array operations |
 | `tqdm` | Progress bars for batch/video processing |
 | `ffmpeg` (system) | Video compression to H.264 (optional, used by `process_video`) |
+
+---
+
+## Repository Components
+
+REBAPose is the inference engine at the center of a larger pipeline for automated ergonomic risk assessment of construction workers from video footage. This repository includes tooling for every stage of the pipeline — from data collection and annotation through model training, frame sampling, expert review, and result visualization.
+
+| Folder | Component | Description |
+|--------|-----------|-------------|
+| [`REBAJsonTrg/`](REBAJsonTrg/) | Model Training | Custom 18-keypoint HRNet-W32 training pipeline using MMPose — dataset generation from per-person annotations + COCO-WholeBody, two-stage training with augmentation |
+| [`REBAShotSelection/`](REBAShotSelection/) | Shot Selection & Curation | Web-based review tool for two independent ergonomic expert reviewers to curate sampled video frames — mark irrelevant/poor-quality frames for exclusion before REBA analysis, with consensus dashboard |
+| [`SamplingFrames_from_videos/`](SamplingFrames_from_videos/) | Keyframe Sampling | Statistically principled frame sampling from construction site video corpus — stratified systematic sampling with multi-person tracking, per-worker balancing, and quality gating |
+| [`pose-angle-annotator/`](pose-angle-annotator/) | Keypoint Annotation Tool | Crowdsourced web app for manually annotating 18 body keypoints on images — interactive canvas with zoom/pan, 3 mandatory keypoints enforced, annotations stored to GCS |
+| [`pose-annotator-test/`](pose-annotator-test/) | Annotator Qualification & Staging | Test environment for qualifying new annotators and validating annotation tool changes — same workflow as production against isolated test data |
+| [`reba-sme-verify/`](reba-sme-verify/) | SME Verification Tool | Web-based tool for subject matter experts to compare keypoint predictions across three pose models (REBA, YOLO, Detectron2) — bias-free color-randomized A/B voting on forehead, neck, and center hip |
+| [`visualize-reba-output/`](visualize-reba-output/) | REBA Score Visualizer | React app for browsing images alongside detailed REBA scoring results — aggregate and individual joint scores in tabular format with image-by-image navigation |
+| [`mmpose/`](mmpose/) | MMPose Framework | OpenMMLab pose estimation toolbox (dependency) |
+
+Each subfolder has its own README with setup instructions, usage examples, and detailed documentation.
 
 ---
 
