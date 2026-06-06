@@ -1,0 +1,9 @@
+node_modules
+dist
+test-results
+playwright-report
+e2e
+tests
+docs
+*.md
+.gitignore
