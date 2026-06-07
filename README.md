@@ -131,8 +131,8 @@ You need the following two model files placed alongside `REBAPose.py` (or provid
 
 | File | Description |
 |------|-------------|
-| `reba_keypoint.py` | MMPose config file defining the custom 18-keypoint HRNet-W32 model architecture and dataset info |
-| `best-6359ffd3_20231208.pth` | Trained weights for the custom REBA keypoint model |
+| `reba_keypoint.py` | MMPose config file defining the custom 18-keypoint HRNet-W32 model architecture and dataset info, available inside Modelweights/config folder |
+| `best-6359ffd3_20231208.pth` | Trained weights for the custom REBA keypoint model, available inside ModelWeights folder |
 
 The detection model (YOLOX-L) and 3D pose lifter (MotionBERT) weights are **downloaded automatically** by MMPose on first run.
 
