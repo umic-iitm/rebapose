@@ -31,7 +31,8 @@ REBAPose combines a custom-trained HRNet-based 18-keypoint pose estimation model
   - [3D Keypoints (17 points)](#3d-keypoints-17-points)
 - [Model Architecture](#model-architecture)
 - [Dependencies](#dependencies)
-- [Repository Components](#repository-components)
+- [Practical Contributions — Two Datasets](#practical-contributions--two-datasets)
+- [Practical Tools for Future Researchers for REBA Research](#practical-tools-for-future-researchers-for-reba-research)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
@@ -131,8 +132,8 @@ You need the following two model files placed alongside `REBAPose.py` (or provid
 
 | File | Description |
 |------|-------------|
-| `reba_keypoint.py` | MMPose config file defining the custom 18-keypoint HRNet-W32 model architecture and dataset info, available inside Modelweights/config folder |
-| `best-6359ffd3_20231208.pth` | Trained weights for the custom REBA keypoint model, available inside ModelWeights folder |
+| `reba_keypoint.py` | MMPose config file defining the custom 18-keypoint HRNet-W32 model architecture and dataset info |
+| `best-6359ffd3_20231208.pth` | Trained weights for the custom REBA keypoint model |
 
 The detection model (YOLOX-L) and 3D pose lifter (MotionBERT) weights are **downloaded automatically** by MMPose on first run.
 
@@ -531,7 +532,16 @@ Produced by the MotionBERT 3D pose lifter:
 
 ---
 
-## Repository Components
+## Practical Contributions — Two Datasets
+
+| Name | Description | Link |
+|------|-------------|------|
+| Annotated COCO Dataset | REBA 18-point annotated JSONs | [`REBAJsonTrg/data/ann/COCO_Dataset`](REBAJsonTrg/data/ann/COCO_Dataset) |
+| Annotated MOCS Dataset | REBA 18-point annotated JSONs | [`REBAJsonTrg/data/ann/MOCS_Dataset`](REBAJsonTrg/data/ann/MOCS_Dataset) |
+
+---
+
+## Practical Tools for Future Researchers for REBA Research
 
 REBAPose is the inference engine at the center of a larger pipeline for automated ergonomic risk assessment of construction workers from video footage. This repository includes tooling for every stage of the pipeline — from data collection and annotation through model training, frame sampling, expert review, and result visualization.
 
